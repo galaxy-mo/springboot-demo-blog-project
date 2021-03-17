@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!-- 视图响应各个设备的屏幕比例 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分类新增</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+    <!-- 一级导航 -->
+    <nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <!-- 博客logo -->
+                <h2 class="ui blue header item">后台管理</h2>
+
+                <!-- 导航栏的选项 -->
+                <a href="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+                <div class="right m-item m-mobile-hide menu">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img class="ui avatar image" src="../../static/images/头像.jpg" style="width: 100; height: 100;">
+                            mo
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 按钮 -->
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!-- 二级导航 -->
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a href="#" th:href="@{/admin/types/input}" class="active blue item">新增</a>
+                <a href="#" th:href="@{/admin/types}" class="item">列表</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 中间内容 -->
+    <div class="m-container-small m-padded-tb-big">
+        <div class="ui container">
+
+            <form action="#" method="POST" th:object="${type}" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})}"  class="ui form">
+                <input type="hidden" name="id" th:value="*{id}">
+                <div class="required field">
+                    <div class="ui left labeled input">
+                        <label class="ui blue basic label">名称</label>
+                        <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+                    </div>
+                </div>
+
+                <!-- 响应JQuery, 显示错误信息 -->
+                <div class="ui error message"></div>
+
+                <!--${#fields.hasErrors('name')}:  校验name输入域是否有错误  -->
+            <!--/*/
+                <div th:if="${#fields.hasErrors('name')}" class="ui negative message">
+                    <i class="close icon"></i>
+                    <div class="header">验证失败</div>
+                    <p th:errors="*{name}">提交信息不符合规则</p>
+                </div>
+            /*/-->
+
+                <div class="ui right aligned container">
+                    <!-- onclick="window.history.go(-1): 返回上一次的状态 -->
+                    <button type="button" class="ui pink button" onclick="window.history.go(-1)">返回</button>
+                    <button class="ui blue submit button">提交</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- 底部 -->
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <!-- semantic ui的栅栏系统，16份为总份数 -->
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../../static/images/scenery_one.jpg" class="ui rounded image" style="width: 150px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事(User Story)</a>
+                        <a href="#" class="item">用户故事(User Story)</a>
+                        <a href="#" class="item">用户故事(User Story)</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">@GitHub</a>
+                        <a href="#" class="item">@Bilibili</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">留言</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-tiny">欢迎来到我的个人博客!博主会实时分享数学、编程、思考等相关内容，编写一些务实、可复现的文章，希望对来到这里的人有所帮助~</p>
+                </div>
+            </div>
+
+            <!-- 线 -->
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">苍鹰搏击万里长空，蛟龙笑傲千堆雪浪</p>
+        </div>
+    </footer>
+
+
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
+    <script src="../../static/lib/editormd/editormd.min.js"></script>
+
+    <script>
+
+        $('.menu.toggle').click(function () {
+            // JQuery的方法，反转处理css样式，如果有则去除，无则加上
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+
+        $('.message .close').on('click', function () {
+            $(this).closest('.message').transition('fade');
+        });
+
+        //表单验证, 给表单的提交加一些条件
+        $('.ui.form').form({
+            fields : {
+                title : {
+                    identifier : 'name',
+                    rules : [{
+                        type : 'empty',
+                        prompt : '请输入分类名称'
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
