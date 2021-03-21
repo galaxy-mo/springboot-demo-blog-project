@@ -18,9 +18,9 @@ public class LogAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
-     * 定义切面，切面作用域为cuit.math.blog.web所有类下的所有方法
+     * 定义切面，切面作用域为com.mohe.blog.web所有类下的所有方法
      */
-    @Pointcut("execution(* cuit.math.blog.web.*.*(..))")
+    @Pointcut("execution(* com.mohe.blog.web.*.*(..))")
     public void log(){}
 
     @Before("log()")

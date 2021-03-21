@@ -22,5 +22,15 @@
 - 前端页面采用栅格系统组合页面布局，完美适配移动端的响应。
 - 全局日志统一管理
 
+## 使用IntelliJ IDEA本地运行项目步骤:
 
-ps：因为作者距离写这个项目的时间比较久了，是最近整理文件夹的时候才发现所以顺手上传一份到GitHub上来。所以提issue的同学还请将问题描述的详细些。（虽然这些代码基本不会有什么复杂逻辑，全是CRUD，hhh，本人当时也刚刚接触springboot，以后有机会了会把这个项目重构一下多加点功能进去）。
+* `clone`项目源码到本地
+* 在本地数据库新建一个名为blog的数据库（本项目采用jpa作为ORM层框架，
+所以新建数据库后运行项目时即可创建数据库结构，故源码中未提供sql语句）
+* 使用IDEA打开项目文件夹
+* 使用Maven下载相关依赖
+* 在"Project Structure"中设置"Project SDK"为1.8，"Project language level"为8-Lambdas...
+* 运行`mvn clean`命令清除maven编译记录，然后`Build-->Build Project`本地编译
+* 点击BlogApplication.java，右键点击"Run BlogApplication..."，日志信息无错误即成功运行
+
+ps：因为作者距离写这个项目的时间比较久了，是最近整理文件夹的时候才发现所以顺手上传一份到GitHub上来。**所以还请提issue的同学还请将问题描述的详细些**。（虽然这些代码基本不会有什么复杂逻辑，全是CRUD，hhh，本人当时也刚刚接触springboot，以后有机会了会把这个项目重构一下多加点功能进去）。

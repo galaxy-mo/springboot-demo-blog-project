@@ -12,7 +12,7 @@ spring:
 logging:
   level:
     root: warn
-    cuit.math: info
+    com.mohe: info
   file: log/blog-pro.log
 
 server:
