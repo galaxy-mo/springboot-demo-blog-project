@@ -13,6 +13,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 评论实体业务类
+ *
+ * @author mo
+ */
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -80,6 +85,7 @@ public class CommentServiceImpl implements CommentService {
 
     //存放迭代找出的所有子代的集合
     private List<Comment> tempReplys = new ArrayList<>();
+
     /**
      * 递归迭代，剥洋葱
      * @param comment 被迭代的对象

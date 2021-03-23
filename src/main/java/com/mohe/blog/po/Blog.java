@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//博客的实体类
+/**
+ * 博客的实体类
+ *
+ * @author mo
+ */
 @Entity
 @Table(name = "t_blog")
 public class Blog {
@@ -53,19 +57,21 @@ public class Blog {
     public Blog() {
     }
 
-    public void init(){
+    public void init() {
         this.tagNames = tagsToNames(this.getTags());
     }
 
-        //1, 2, 3
-    private String tagsToNames(List<Tag> tags){
-        //把标签对象转成标签的id，以方便前端的参数传值和校验
+    /**
+     * 把标签对象转成标签的id，以方便前端的参数传值和校验
+     * 例如： 1, 2, 3
+     */
+    private String tagsToNames(List<Tag> tags) {
         if (!tags.isEmpty()) {
             StringBuffer ids = new StringBuffer();
             boolean flag = false;
-            for (Tag tag : tags){
+            for (Tag tag : tags) {
                 //最后一个不加,
-                if (flag){
+                if (flag) {
                     ids.append(",");
                 } else {
                     flag = true;

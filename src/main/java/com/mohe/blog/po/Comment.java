@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//博客评论类
+/**
+ * 博客评论类
+ *
+ * @author mo
+ */
 @Entity
 @Table(name = "t_comment")
 public class Comment {

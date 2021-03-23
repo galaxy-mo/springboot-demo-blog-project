@@ -7,6 +7,11 @@ import java.beans.PropertyDescriptor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 自定义bean操作工具类
+ *
+ * @author mo
+ */
 public class MyBeanUtils {
 
     /**

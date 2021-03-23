@@ -7,6 +7,11 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.List;
 
+/**
+ * 评论实例dao层
+ *
+ * @author mo
+ */
 public interface CommentRepository extends JpaRepository<Comment, Long>, JpaSpecificationExecutor<Comment> {
 
     List<Comment> findByBlogIdAndParentCommentNull(Long blogId, Sort sort);

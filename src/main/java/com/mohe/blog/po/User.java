@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//用户实体类
+/**
+ * 用户实体类
+ *
+ * @author mo
+ */
 @Entity
 @Table(name = "t_user")
 public class User {

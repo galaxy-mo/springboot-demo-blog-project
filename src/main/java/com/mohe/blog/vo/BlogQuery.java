@@ -1,5 +1,10 @@
 package com.mohe.blog.vo;
 
+/**
+ * 封装博客查询对象信息
+ *
+ * @author mo
+ */
 public class BlogQuery {
 
     private String title;

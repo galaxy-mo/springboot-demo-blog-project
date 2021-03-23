@@ -15,6 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * 博客分类实体业务类
+ *
+ * @author mo
+ */
 @Service
 public class TypeServiceImpl implements TypeService {
 

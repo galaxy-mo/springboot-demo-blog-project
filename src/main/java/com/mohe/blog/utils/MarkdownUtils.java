@@ -14,6 +14,11 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import java.util.*;
 
+/**
+ * markdown转换工具类
+ *
+ * @author mo
+ */
 public class MarkdownUtils {
 
     /**

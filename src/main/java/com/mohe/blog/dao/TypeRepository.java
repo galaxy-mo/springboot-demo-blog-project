@@ -7,6 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+/**
+ * 博客分类实例dao层
+ *
+ * @author mo
+ */
 public interface TypeRepository extends JpaRepository<Type, Long> {
 
     Type findByName(String name);

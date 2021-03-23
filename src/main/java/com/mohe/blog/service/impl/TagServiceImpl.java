@@ -16,6 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 标签实体业务类
+ *
+ * @author mo
+ */
 @Service
 public class TagServiceImpl implements TagService {
 

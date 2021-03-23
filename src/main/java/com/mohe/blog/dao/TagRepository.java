@@ -7,6 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+/**
+ * 标签实例dao层
+ *
+ * @author mo
+ */
 public interface TagRepository extends JpaRepository<Tag, Long> {
 
     Tag findByName(String name);

@@ -10,7 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
-//ControllerAdvice会拦截到所有标注了Controller的web层接口
+/**
+ * ControllerAdvice会拦截到所有标注了Controller的web层接口
+ *
+ * @author mo
+ */
 @ControllerAdvice
 public class ControllerExceptionHandler {
 

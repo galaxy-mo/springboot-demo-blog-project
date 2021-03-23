@@ -21,6 +21,11 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.criteria.*;
 import java.util.*;
 
+/**
+ * 博客实体业务类
+ *
+ * @author mo
+ */
 @Service
 public class BlogServiceImpl implements BlogService {
 
@@ -55,7 +60,11 @@ public class BlogServiceImpl implements BlogService {
         return b;
     }
 
-    //查询所有的博客总数
+    /**
+     * 查询所有的博客总数
+     *
+     * @return
+     */
     @Override
     public Long countBlog() {
         return repository.count();

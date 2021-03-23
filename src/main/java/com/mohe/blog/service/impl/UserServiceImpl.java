@@ -7,6 +7,11 @@ import com.mohe.blog.utils.MD5utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 用户实体业务类
+ *
+ * @author mo
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

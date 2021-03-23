@@ -5,7 +5,11 @@ import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
-//博客分类的实体类
+/**
+ * 博客分类的实体类
+ *
+ * @author mo
+ */
 @Entity
 @Table(name = "t_type")
 public class Type {
