@@ -12,6 +12,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * login controller
+ *
+ * @author mo
+ */
 @Controller
 @RequestMapping("/admin")
 public class LoginController {
@@ -19,18 +24,24 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    //对/admin路径进行初始化，默认页面
+    /**
+     * 对/admin路径进行初始化，默认页面
+     *
+     * @return
+     */
     @GetMapping
-    public String loginPage(){
+    public String loginPage() {
         return "admin/login";
     }
 
-    //登录方法
+    /**
+     * 用户登录
+     */
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password,
-                        HttpSession session, RedirectAttributes attributes){
+                        HttpSession session, RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
-        if (user != null){
+        if (user != null) {
             //防止密码被拿到
             user.setPassword(null);
             session.setAttribute("user", user);
@@ -42,9 +53,11 @@ public class LoginController {
         }
     }
 
-    //注销用户方法
+    /**
+     * 用户注销登录
+     */
     @GetMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         //注销登录信息，即将session中的用户信息清空掉
         session.removeAttribute("user");
         //重定向到登录页面

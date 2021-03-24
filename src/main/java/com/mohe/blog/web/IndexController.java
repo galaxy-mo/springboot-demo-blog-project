@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * 归档页面controller层
+ *
+ * @author mo
+ */
 @Controller
 public class IndexController {
 
@@ -26,7 +31,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                    Pageable pageable, Model model){
+                                Pageable pageable, Model model){
         //传递所有前端渲染页面时所需要用到的数据
         model.addAttribute("page", blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listTypeTop(6));

@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+/**
+ * 分类展示页面controller层
+ *
+ * @author mo
+ */
 @Controller
-public class TypeShowControlller {
+public class TypeShowController {
 
     @Autowired
     private TypeService typeService;
@@ -27,7 +32,7 @@ public class TypeShowControlller {
     @GetMapping("/types/{id}")
     public String types(@PathVariable Long id,
                         @PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-            Pageable pageable, Model model){
+                                Pageable pageable, Model model){
         //拿到所有的分类
         List<Type> types = typeService.listTypeTop(100);
         //如果是导航栏点击产生的跳转则默认跳转到第一个

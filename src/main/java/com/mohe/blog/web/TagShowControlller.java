@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+/**
+ * 标签展示页面controller层
+ *
+ * @author mo
+ */
 @Controller
 public class TagShowControlller {
 
@@ -25,8 +30,8 @@ public class TagShowControlller {
 
     @GetMapping("/tags/{id}")
     public String tags(@PathVariable Long id,
-                        @PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-            Pageable pageable, Model model){
+                       @PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+                               Pageable pageable, Model model){
         //拿到所有的分类
         List<Tag> tags = tagService.listTagTop(100);
         //如果是导航栏点击产生的跳转则默认跳转到第一个

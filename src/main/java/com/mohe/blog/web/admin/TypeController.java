@@ -17,6 +17,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
+/**
+ * type controller
+ *
+ * @author mo
+ */
 @Controller
 @RequestMapping("/admin")
 public class TypeController {
@@ -26,7 +31,7 @@ public class TypeController {
 
     @GetMapping("/types")
     public String types(@PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC)
-                                    Pageable pageable, Model model){
+                                Pageable pageable, Model model){
         model.addAttribute("page", service.listType(pageable));
         service.listType(pageable);
         return "admin/types";

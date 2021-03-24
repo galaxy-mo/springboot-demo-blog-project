@@ -20,6 +20,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * blog controller
+ *
+ * @author mo
+ */
 @Controller
 @RequestMapping("/admin")
 public class BlogController {
@@ -37,7 +42,7 @@ public class BlogController {
 
     @GetMapping("/blogs")
     public String blogs(@PageableDefault(size = 3, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                    Pageable pageable, BlogQuery blog, Model model){
+                                Pageable pageable, BlogQuery blog, Model model){
         model.addAttribute("types", typeService.listType());
         model.addAttribute("page", blogService.listBlog(pageable, blog));
         return LIST;
@@ -46,7 +51,7 @@ public class BlogController {
     //搜索栏的搜索方法
     @PostMapping("/blogs/search")
     public String search(@PageableDefault(size = 3, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                Pageable pageable, BlogQuery blog, Model model){
+                                 Pageable pageable, BlogQuery blog, Model model){
         model.addAttribute("page", blogService.listBlog(pageable, blog));
         return "admin/blogs :: blogList";
     }

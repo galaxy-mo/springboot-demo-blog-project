@@ -6,8 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * 文章展示页面controller层
+ *
+ * @author mo
+ */
 @Controller
-public class archiveShowController {
+public class ArchiveShowController {
 
     @Autowired
     private BlogService blogService;

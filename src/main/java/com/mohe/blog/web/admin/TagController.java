@@ -17,6 +17,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
+/**
+ * tag controller
+ *
+ * @author mo
+ */
 @Controller
 @RequestMapping("/admin")
 public class TagController {
@@ -26,7 +31,7 @@ public class TagController {
 
     @GetMapping("/tags")
     public String tags(@PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC)
-                                    Pageable pageable, Model model){ //给pageable对象赋予属性，5条一分页，根据id倒叙显示
+                               Pageable pageable, Model model){ //给pageable对象赋予属性，5条一分页，根据id倒叙显示
         //将数据传递给前端,此处传递分页对象
         model.addAttribute("page", service.listTag(pageable));
         service.listTag(pageable);
@@ -65,7 +70,7 @@ public class TagController {
             return "admin/tags-input";
         }
         Tag t = service.updateTag(id, tag);
-        if (t == null){
+        if (t == null) {
             attributes.addFlashAttribute("message", "更新失败");
         } else {
             attributes.addFlashAttribute("message", "更新成功");
@@ -73,15 +78,17 @@ public class TagController {
         return "redirect:/admin/tags";
     }
 
-    //给列表里的编辑按钮给定api
+    /**
+     * 给列表里的编辑按钮给定api
+     */
     @GetMapping("/tags/{id}/input")
-    public String editInput(@PathVariable Long id, Model model){
+    public String editInput(@PathVariable Long id, Model model) {
         model.addAttribute("tag", service.getTag(id));
         return "admin/tags-input";
     }
 
     @GetMapping("/tags/{id}/delete")
-    public String deleteTag(@PathVariable Long id, RedirectAttributes attributes){
+    public String deleteTag(@PathVariable Long id, RedirectAttributes attributes) {
         service.deleteTag(id);
         attributes.addFlashAttribute("message", "删除成功");
         return "redirect:/admin/tags";

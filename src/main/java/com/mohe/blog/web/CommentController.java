@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * 评论controller层
+ *
+ * @author mo
+ */
 @Controller
-public class commentController {
+public class CommentController {
 
     @Autowired
     private CommentService commentService;
